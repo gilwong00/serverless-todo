@@ -1,0 +1,7 @@
+{
+  "resource": "/todo/0a7a9153-2c1e-4de4-960f-0144966f55df",
+  "httpMethod": "GET",
+  "pathParameters": {
+    "id": "0a7a9153-2c1e-4de4-960f-0144966f55df"
+  }
+}

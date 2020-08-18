@@ -1,0 +1,4 @@
+{
+  "resource": "/todos",
+  "httpMethod": "GET"
+}

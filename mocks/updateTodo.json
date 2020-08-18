@@ -1,0 +1,8 @@
+{
+  "resource": "/todo/0a7a9153-2c1e-4de4-960f-0144966f55df",
+  "httpMethod": "PUT",
+  "body": "{\"task\":\"code something 2\",\"isCompleted\":\"false\"}",
+  "pathParameters": {
+    "id": "0a7a9153-2c1e-4de4-960f-0144966f55df"
+  }
+}
