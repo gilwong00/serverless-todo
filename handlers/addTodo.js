@@ -1,13 +1,26 @@
-const AWS = require('aws-sdk');
-const handlerResponse = require('../libs/response');
-const dynamodb = new AWS.DynamoDB.DocumentClient();
-const tableName = process.env.NOTES_TABLE;
+import handlerResponse from '../libs/response';
+import dynamoDb from '../libs/dynamodb-lib';
+import { validateTodo } from '../models/todo';
 
-export const get = async event => {
+export const create = async (event) => {
   try {
-    return handlerResponse(200, { msh: 'Success' });
+    const data = JSON.parse(event.body);
+    const { value, error } = validateTodo(data);
+
+    if (error) {
+      return handlerResponse(500, error.message);
+    }
+
+    const params = {
+      TableName: process.env.todosTable,
+      Item: {
+        ...value
+      }
+    };
+
+    await dynamoDb.put(params);
+    return handlerResponse(200, params.Todo);
   } catch (err) {
-    console.log('err', err);
     return handlerResponse(500, err.message ?? '');
   }
 };

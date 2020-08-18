@@ -14,11 +14,20 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.734.0",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
     "serverless-bundle": "2.0.0",
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.3.3"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "uuid": "^8.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
