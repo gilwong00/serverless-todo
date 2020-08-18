@@ -19,7 +19,7 @@ export const create = async (event) => {
     };
 
     await dynamoDb.put(params);
-    return handlerResponse(200, params.Todo);
+    return handlerResponse(200, params.Item);
   } catch (err) {
     return handlerResponse(500, err.message ?? '');
   }

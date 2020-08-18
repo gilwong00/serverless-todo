@@ -14,7 +14,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
-  region: us-east-1
+  region: us-east-2
 
   environment:
     todosTable: todos
@@ -29,15 +29,9 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:us-east-1:*:*'
+      Resource: 'arn:aws:dynamodb:us-east-2:*:*'
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: hello
-          method: get
   createTodo:
     handler: handlers/addTodo.create
     events:
